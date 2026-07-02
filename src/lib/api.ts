@@ -24,9 +24,7 @@ import type { Marca, Producto, HeroSlide, CartItem, DireccionEnvio } from '@/typ
  * backend real, el resto del sitio sigue funcionando sin cambios.
  */
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
-
-// ─────────────────────────────────────────────────────────────
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;// ─────────────────────────────────────────────────────────────
 // MARCAS
 // ─────────────────────────────────────────────────────────────
 export async function getMarcas(): Promise<Marca[]> {

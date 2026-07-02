@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   VARIABLES GLOBALES DE AYUDADÓN
+   Úsalas con var(--color-xxx) en cualquier parte del proyecto.
+   Están mapeadas a los tokens de tailwind.config.ts
+   ============================================================ */
+:root {
+  /* Paleta principal */
+  --color-navy:       #1e3a5f;
+  --color-navy-light: #2e5282;
+  --color-yellow:     #ffba08;
+  --color-brown:      #d4a373;
+  --color-brown-dark: #a0714a;
+  --color-sky:        #7ac7e1;
+
+  /* Superficies */
+  --color-bg:         #f9fafb;   /* fondo página */
+  --color-surface:    #ffffff;   /* tarjetas, modales */
+  --color-border:     #e5e7eb;   /* bordes sutiles */
+
+  /* Texto */
+  --color-text:       #111827;
+  --color-text-muted: #6b7280;
+
+  /* TrustBanner */
+  --trust-bg:         #d4a373;   /* café principal */
+  --trust-text:       #431407;   /* texto oscuro sobre café */
+  --trust-icon:       #78350f;
+
+  /* Espaciado base para secciones */
+  --section-px: 1rem;
+  --section-max: 80rem; /* max-w-7xl */
+}
+
+@media (min-width: 768px) {
+  :root {
+    --section-px: 1.5rem;
+  }
+}
+
+/* ============================================================
+   LIQUID GLASS — Efecto de vidrio para el Header sticky
+   Usar la clase: .liquid-glass
+   ============================================================ */
+@layer components {
+  .liquid-glass {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px) saturate(1.6);
+    -webkit-backdrop-filter: blur(20px) saturate(1.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.05),
+                0 4px 20px -4px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Variante del logo en modo glass — para usar sobre el header */
+  .brand-logo {
+    @apply flex items-center gap-2 font-black text-gray-900 
+           hover:scale-105 transition-transform duration-300 cursor-pointer select-none;
+    text-decoration: none;
+  }
+
+  /* Input estándar del proyecto */
+  .input-base {
+    @apply w-full py-3 px-4 border border-gray-200 rounded-input
+           bg-gray-50 focus:bg-white
+           outline-none focus:border-brand-brownDark
+           focus:ring-2 focus:ring-brand-brown/20
+           text-gray-900 placeholder:text-gray-400
+           transition-all duration-200;
+    box-shadow: var(--shadow-input, inset 0 1px 3px rgba(0,0,0,0.06));
+  }
+
+  /* Botón primario (café) */
+  .btn-primary {
+    @apply w-full bg-brand-brown text-white font-black text-base
+           py-3.5 px-6 rounded-input shadow-sm
+           hover:bg-brand-brownDark hover:shadow-md hover:-translate-y-0.5
+           active:scale-95 transition-all duration-300;
+  }
+
+  /* Botón secundario (navy outline) */
+  .btn-secondary {
+    @apply w-full border-2 border-brand-navy text-brand-navy font-black text-base
+           py-3.5 px-6 rounded-input
+           hover:bg-brand-navy hover:text-white hover:-translate-y-0.5
+           active:scale-95 transition-all duration-300;
+  }
+
+  /* Tarjeta estándar de producto/marca */
+  .card {
+    @apply bg-white rounded-card border border-gray-100 shadow-card
+           hover:shadow-card-hover hover:-translate-y-1.5
+           transition-all duration-300 cursor-pointer;
+  }
+
+  /* Contenedor de sección estándar */
+  .section-container {
+    @apply max-w-[80rem] mx-auto px-4 md:px-6;
+  }
+
+  /* Clase de reveal (para animaciones al hacer scroll) */
+  .reveal {
+    @apply opacity-0 translate-y-6 transition-all duration-700 ease-out;
+  }
+  .reveal.visible {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+/* ============================================================
+   SELECCIÓN DE TEXTO — Colores de marca
+   ============================================================ */
+::selection {
+  background-color: var(--color-yellow);
+  color: #431407;
+}
+
+/* ============================================================
+   SCROLLBAR PERSONALIZADO (navegadores WebKit)
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brown);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brown-dark);
+}
+
+/* ============================================================
+   ANIMACIÓN SCROLL INFINITO (BrandsBanner)
+   ============================================================ */
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+.animate-scroll {
+  animation: scroll 28s linear infinite;
+}
+.animate-scroll:hover {
+  animation-play-state: paused;
+}

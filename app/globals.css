@@ -1,26 +1,133 @@
 @import "tailwindcss";
+@config "../../tailwind.config.ts";
 
+/* ============================================================
+   VARIABLES GLOBALES DE AYUDADÓN
+   ============================================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-navy:       #1e3a5f;
+  --color-navy-light: #2e5282;
+  --color-yellow:     #ffba08;
+  --color-brown:      #d4a373;
+  --color-brown-dark: #a0714a;
+  --color-sky:        #7ac7e1;
+  --color-bg:         #f9fafb;
+  --color-surface:    #ffffff;
+  --color-border:     #e5e7eb;
+  --color-text:       #111827;
+  --color-text-muted: #6b7280;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ============================================================
+   LIQUID GLASS — clase usada en Header.tsx
+   ============================================================ */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px) saturate(1.6);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    0 1px 0 0 rgba(0, 0, 0, 0.05),
+    0 4px 20px -4px rgba(0, 0, 0, 0.08);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================================
+   SELECCIÓN DE TEXTO
+   ============================================================ */
+::selection {
+  background-color: var(--color-yellow);
+  color: #431407;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar       { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: var(--color-brown); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-brown-dark); }
+
+/* ============================================================
+   ANIMACIÓN SCROLL INFINITO — BrandsBanner
+   ============================================================ */
+@keyframes scroll-brands {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
 }
+.animate-scroll {
+  animation: scroll-brands 28s linear infinite;
+}
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* ============================================================
+   BOUNCE DEL TRUSTBANNER — efecto de caída con rebote
+   ============================================================ */
+@keyframes trust-bounce-in {
+  0%   { transform: translateY(100%); }
+  55%  { transform: translateY(-8%); }   /* rebote hacia arriba */
+  75%  { transform: translateY(3%); }    /* segundo rebote más pequeño */
+  90%  { transform: translateY(-1%); }
+  100% { transform: translateY(0); }
+}
+.trust-bounce {
+  animation: trust-bounce-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ============================================================
+   FLOTACIÓN SUTIL DE LA MASCOTA EN EL HERO
+   ============================================================ */
+@keyframes mascot-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+.animate-mascot-float {
+  animation: mascot-float 4.5s ease-in-out infinite;
+}
+
+/* ============================================================
+   ANIMACIONES DE LA PÁGINA DE CONFIRMACIÓN
+   ============================================================ */
+
+/* Mascota: bounce festivo de entrada, dos rebotes y se asienta */
+@keyframes celebrate-bounce {
+  0%   { transform: translateY(-40px) scale(0.6); opacity: 0; }
+  50%  { transform: translateY(0) scale(1.08); opacity: 1; }
+  65%  { transform: translateY(-10px) scale(0.98); }
+  80%  { transform: translateY(0) scale(1.02); }
+  100% { transform: translateY(0) scale(1); }
+}
+.animate-celebrate-bounce {
+  animation: celebrate-bounce 1s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Check verde: aparece con un pequeño "pop" después de que la mascota se asienta */
+@keyframes check-pop {
+  0%   { transform: scale(0); opacity: 0; }
+  60%  { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-check-pop {
+  animation: check-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.55s both;
+}
+
+/* Confeti: partículas flotando hacia arriba y desapareciendo, en bucle lento y desincronizado */
+@keyframes confetti-float-1 {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+  50%  { transform: translateY(-18px) rotate(180deg); opacity: 0.3; }
+  100% { transform: translateY(0) rotate(360deg); opacity: 0.6; }
+}
+@keyframes confetti-float-2 {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+  50%  { transform: translateY(14px) rotate(-180deg); opacity: 0.2; }
+  100% { transform: translateY(0) rotate(-360deg); opacity: 0.5; }
+}
+@keyframes confetti-float-3 {
+  0%   { transform: translateY(0) translateX(0); opacity: 0.55; }
+  50%  { transform: translateY(-10px) translateX(8px); opacity: 0.25; }
+  100% { transform: translateY(0) translateX(0); opacity: 0.55; }
+}
+.animate-confetti-1 { animation: confetti-float-1 5s ease-in-out infinite; }
+.animate-confetti-2 { animation: confetti-float-2 6.5s ease-in-out infinite; }
+.animate-confetti-3 { animation: confetti-float-3 4.2s ease-in-out infinite; }

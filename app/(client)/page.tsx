@@ -220,7 +220,7 @@ export default function HomePage() {
           <div className="mb-5 flex items-end justify-between px-1 md:mb-7">
             <h2 className="text-2xl font-black tracking-tight text-brand-navy md:text-4xl">
               <i className="fa-solid fa-fire-flame-curved mr-2 text-brand-brown" />
-              Populares
+              Productos Destacados
             </h2>
 
             <a

@@ -237,13 +237,13 @@ const MOCK_DIRECCION: DireccionEnvio = {
 };
 
 const MOCK_MARCAS: Marca[] = [
-  { id: '1', slug: 'casa-julio-cesar',  name: 'Casa Julio César', logoUrl: '/marcas/Casa Julio César.png', description: 'Materiales y decoración',                 category: 'Hogar',      isActive: true, displayOrder: 1 },
-  { id: '2', slug: 'itp-mobiliario',    name: 'ITP Mobiliario',   logoUrl: '/marcas/ITP Mobiliario.png',   description: 'Mobiliario de Hogar, Escuelas y Oficinas', category: 'Hogar',      isActive: true, displayOrder: 2 },
-  { id: '3', slug: 'loan-arte',         name: 'Loan Arte',        logoUrl: '/marcas/Loan arte.png',        description: 'Arte',                                     category: 'Arte',       isActive: true, displayOrder: 3 },
-  { id: '4', slug: 'oro-negro',         name: 'Oro negro',        logoUrl: '/marcas/Oro negro.png',        description: 'Especialistas en café',                    category: 'Alimentos',  isActive: true, displayOrder: 4 },
-  { id: '5', slug: 'peyote-leather',    name: 'Peyote Leather',   logoUrl: '/marcas/Peyote Leather.png',   description: 'Estructuras',                              category: 'Accesorios', isActive: true, displayOrder: 5 },
-  { id: '6', slug: 'vitralma',          name: 'Vitralma',         logoUrl: '/marcas/Vitralma.png',         description: 'Bebidas Orgánicas',                        category: 'Alimentos',  isActive: true, displayOrder: 6 },
-  { id: '7', slug: 'domotica-369',      name: 'Domótica 369',     logoUrl: '/marcas/Domótica 369.png',     description: 'Casas Inteligentes',                       category: 'Tecnología', isActive: true, displayOrder: 7 },
+  { id: '1', slug: 'casa-julio-cesar',  name: 'Casa Julio César', logoUrl: '/marcas/Casa Julio César.png', description: 'Artículos y algo más para el hogar',                 category: 'Hogar',      isActive: true, displayOrder: 1 },
+  { id: '2', slug: 'itp-mobiliario',    name: 'ITP Mobiliario',   logoUrl: '/marcas/ITP Mobiliario.png',   description: 'Fabricante de mobiliario educacional, residencial, bar & restaurantes e instituciona', category: 'Hogar',      isActive: true, displayOrder: 2 },
+  { id: '3', slug: 'loan-arte',         name: 'Loan Arte',        logoUrl: '/marcas/Loan arte.png',        description: 'Arte abstracto contemporáneo, muy humano, muy visual y nada artificial',                                     category: 'Arte',       isActive: true, displayOrder: 3 },
+  { id: '4', slug: 'oro-negro',         name: 'Oro negro',        logoUrl: '/marcas/Oro negro.png',        description: 'Distribuidora de ropa al por mayor ubicados en Naucalpan',                    category: 'Alimentos',  isActive: true, displayOrder: 4 },
+  { id: '5', slug: 'peyote-leather',    name: 'Peyote Leather',   logoUrl: '/marcas/Peyote Leather.png',   description: 'Artículos de cuero artesanales hechos a mano.',                              category: 'Accesorios', isActive: true, displayOrder: 5 },
+  { id: '6', slug: 'vitralma',          name: 'Vitralma',         logoUrl: '/marcas/Vitralma.png',         description: 'Joyas personalizadas que cuentan tu historia. Diseños únicos creados especialmente para ti.',                        category: 'Alimentos',  isActive: true, displayOrder: 6 },
+  { id: '7', slug: 'brillo-de-plata',      name: 'Brillo de Plata',     logoUrl: '/marcas/Domótica 369.png',     description: 'El brillo de la plata con la dulzura de la Miel',                       category: 'Tecnología', isActive: true, displayOrder: 7 },
   { id: '8', slug: 'titan-accesorios',  name: 'Titán Accesorios', logoUrl: '/marcas/Titán Accesorios.png', description: 'Fundas y Electrónica',                     category: 'Tecnología', isActive: true, displayOrder: 8 },
   { id: '9', slug: 'mint-software',     name: 'Mint Software',    logoUrl: '/marcas/Mint Software.png',    description: 'Desarrollo Web',                           category: 'Tecnología', isActive: true, displayOrder: 9 },
 ];

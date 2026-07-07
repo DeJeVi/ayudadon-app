@@ -211,20 +211,20 @@ export default function MarcaPage() {
               <i className="fa-solid fa-chevron-right text-sm md:text-base" />
             </button>
 
-            <div className="absolute bottom-3 left-0 right-0 z-[50] flex justify-center gap-2">
-              {heroSlides.map((slide, idx) => (
-                <button
-                  key={slide.id}
-                  onClick={() => setHeroIndex(idx)}
-                  aria-label={`Ir al slide ${idx + 1}`}
-                  className={`h-2 rounded-full shadow-sm transition-all duration-200 ${
-                    heroIndex === idx
-                      ? "w-7 bg-white"
-                      : "w-2 bg-white/50 hover:bg-white/80"
-                  }`}
-                />
-              ))}
-            </div>
+            <div className="absolute right-3 top-3 z-[50] flex items-center gap-1.5 rounded-full bg-black/10 px-2 py-1.5 backdrop-blur-sm sm:right-6 sm:top-5 sm:gap-2 sm:px-2.5 sm:py-2 md:right-8 md:top-6">
+  {heroSlides.map((slide, idx) => (
+    <button
+      key={slide.id}
+      onClick={() => setHeroIndex(idx)}
+      aria-label={`Ir al slide ${idx + 1}`}
+      className={`h-1.5 rounded-full shadow-sm transition-all duration-200 sm:h-2 ${
+        heroIndex === idx
+          ? "w-6 bg-white sm:w-7"
+          : "w-1.5 bg-white/60 hover:bg-white/90 sm:w-2"
+      }`}
+    />
+  ))}
+</div>
           </>
         )}
       </section>
